@@ -5,7 +5,7 @@ def init_db():
     # import all modules here that might define models so that
     # they will be registered properly on the metadata.  Otherwise
     # you will have to import them first before calling init_db()
-    from models import Department, Employee, Role
+    from models import Department, Employee, SalaryEmployee, HourlyEmployee,  Role
     for model in [Department, Employee, Role]:
         if model.exists():
             model.delete_table()
@@ -23,11 +23,11 @@ def init_db():
     engineer = Role(id=str(uuid4()), name='engineer')
     engineer.save()
 
-    peter = Employee(id=str(uuid4()), name='Peter', department=engineering, role=engineer)
+    peter = SalaryEmployee(id=str(uuid4()), name='Peter', department=engineering, role=engineer, health=True, salary=100)
     peter.save()
 
-    roy = Employee(id=str(uuid4()), name='Roy', department=engineering, role=engineer)
+    roy = SalaryEmployee(id=str(uuid4()), name='Roy', department=engineering, role=engineer, health=True, salary=100)
     roy.save()
 
-    tracy = Employee(id=str(uuid4()), name='Tracy', department=hr, role=manager)
+    tracy = HourlyEmployee(id=str(uuid4()), name='Tracy', department=hr, role=manager, hourly=1)
     tracy.save()

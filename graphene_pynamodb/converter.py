@@ -62,6 +62,15 @@ def convert_relationship_to_dynamic(type, attribute, registry=None):
     return Dynamic(dynamic_type)
 
 
+@convert_pynamo_attribute.register(attributes.DiscriminatorAttribute)
+def convert_discriminator_to_string(type, attribute, registry=None):
+    return String(
+        description='test',
+        required=not (getattr(attribute, "null", True)),
+    )
+
+
+
 @convert_pynamo_attribute.register(attributes.NumberAttribute)
 def convert_column_to_float_or_id(type, attribute, registry=None):
     if attribute.is_hash_key:

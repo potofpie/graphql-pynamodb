@@ -11,7 +11,7 @@ __pycache__/
 # Distribution / packaging
 .Python
 .env/
-env/
+venv/
 build/
 develop-eggs/
 dist/
@@ -23,6 +23,7 @@ lib64/
 parts/
 sdist/
 var/
+*/mockdb/docker/*
 *.egg-info/
 .installed.cfg
 *.egg
