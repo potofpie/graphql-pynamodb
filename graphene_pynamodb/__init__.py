@@ -3,6 +3,8 @@ from .fields import (
 )
 from .types import (
     PynamoObjectType,
+    MongoengineInterfaceTypeOptions,
+    MongoengineInterfaceType
 )
 
-__all__ = ['PynamoObjectType', 'PynamoConnectionField']
+__all__ = ['PynamoObjectType', 'PynamoConnectionField', 'MongoengineInterfaceType', 'MongoengineInterfaceTypeOptions']
